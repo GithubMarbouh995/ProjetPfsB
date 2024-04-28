@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-detail-article',
   templateUrl: './detail-article.component.html',
@@ -11,7 +10,21 @@ export class DetailArticleComponent implements OnInit {
   prix ?: string;
   taille ?: string;
   couleur ?: string;
+  recipient ?: string;
+  message ?: string;
 
+  openModal(recipient: string) {
+    this.recipient = recipient;
+    // You can also make an AJAX request here to fetch data and update the modal content
+  }
+
+  closeModal() {
+    this.recipient = '';
+  }
+
+  sendMessage() {
+    console.log('Send message');
+  }
   constructor() { }
 
   ngOnInit(): void {

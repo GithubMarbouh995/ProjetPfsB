@@ -14,12 +14,12 @@ declare let window: Window;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
 
+  ) { }
   ngOnInit(): void {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag('js', new Date());
-    window.gtag('config', 'G-XXXXXXXXXX');
+    // window.dataLayer = window.dataLayer || [];
+    // window.gtag('js', new Date());
+    // window.gtag('config', 'G-XXXXXXXXXX');
   }
-
 }
