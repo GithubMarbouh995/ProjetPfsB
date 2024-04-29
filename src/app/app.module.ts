@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BoutiquePageComponent } from './pages/boutique-page/boutique-page.component';
 import { BoutiqueCardComponent } from './components/boutique-card/boutique-card.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { BoutiqueDetailComponent } from './components/boutique-detail/boutique-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     FooterComponent,
     BoutiquePageComponent,
     BoutiqueCardComponent,
-    PaginationComponent
+    PaginationComponent,
+    BoutiqueDetailComponent
   ],
   imports: [
     BrowserModule,
