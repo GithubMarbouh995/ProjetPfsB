@@ -1,35 +1,8 @@
+/* Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Rubik:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
-
-
-
-.nav_top{
-  display: flex;
-  background-image: linear-gradient(13deg, #272F56 33%, #AA832C 71%);
-  background-color: #cccccc;
-  height: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-
-}
-
-.dropdown-toggle::after{
-  color: white;
-
-}
-
-@media  screen and (max-width: 960px) {
-  .responsive {
-    flex-direction: column;
-    gap: 11px;
-  }
-  .nav_top {
-    height: 339px;
-  }
-}
 
 
 
@@ -732,4 +705,11 @@ padding-top:10px !important;
 .vendor_home_article_container .bottomleft
 {
   bottom:33%;
+}
+.move-right {
+  margin-left: 60px; /* Ajustez cette valeur en fonction de la distance que vous voulez déplacer vos éléments à droite */
+}
+
+.custom-size {
+  width: 350px; 
 }
