@@ -157,4 +157,11 @@
   }
   
    
-  
+  .card-title{color: rgb(28, 28, 138);
+    max-width: 300px;
+    text-overflow: ellipsis;
+    font-size: 17px;
+    white-space: nowrap;
+    font-weight: bold;
+    overflow: hidden;
+  }  

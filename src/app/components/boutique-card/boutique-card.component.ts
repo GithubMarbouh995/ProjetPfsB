@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Boutique } from 'src/app/models/Boutique';
 
 @Component({
   selector: 'app-boutique-card',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./boutique-card.component.css']
 })
 export class BoutiqueCardComponent {
+  @Input() boutique: Boutique = new Boutique(0, '', '', '', '', '')     ;
+  
 
 }
