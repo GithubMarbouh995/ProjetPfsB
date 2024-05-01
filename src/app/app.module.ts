@@ -21,8 +21,8 @@ import { BoutiqueDetailPageComponent } from './pages/boutique-detail-page/boutiq
     BoutiquePageComponent,
     BoutiqueCardComponent,
     PaginationComponent,
+    ProduitsBoutiqueComponent,
     BoutiqueDetailPageComponent,   
-     ProduitsBoutiqueComponent,
 
   ],
   imports: [
