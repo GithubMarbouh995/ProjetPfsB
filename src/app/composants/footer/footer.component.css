@@ -139,12 +139,11 @@ ul {
   margin-bottom: 10px;
 }
 
-.card-title{color: rgb(20, 20, 105);
+.card-title{
   max-width: 300px;
   text-overflow: ellipsis;
   font-size: 17px;
   white-space: nowrap;
-  font-weight: bold;
   overflow: hidden;
 }
 

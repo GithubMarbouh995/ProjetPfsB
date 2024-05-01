@@ -1,13 +1,16 @@
-import { NgModule } from '@angular/core';
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router'; // Import RouterModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { ProduitsBoutiqueComponent } from './produits-boutique/produits-boutique.component'; // Correct the path
+import { HeaderComponent } from './composants/header/header.component';
+import { PaginationComponent } from './composants/pagination/pagination.component';
+import { FooterComponent } from './composants/footer/footer.component';
 import { BoutiquePageComponent } from './pages/boutique-page/boutique-page.component';
-import { BoutiqueCardComponent } from './components/boutique-card/boutique-card.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
+import { BoutiqueCardComponent } from './composants/boutique-card/boutique-card.component';
 import { BoutiqueDetailPageComponent } from './pages/boutique-detail-page/boutique-detail-page.component';
 
 @NgModule({
@@ -18,13 +21,20 @@ import { BoutiqueDetailPageComponent } from './pages/boutique-detail-page/boutiq
     BoutiquePageComponent,
     BoutiqueCardComponent,
     PaginationComponent,
-    BoutiqueDetailPageComponent
+    BoutiqueDetailPageComponent,   
+     ProduitsBoutiqueComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+   
+    RouterModule 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add this line to suppress the 'router-outlet' error
+
 })
 export class AppModule { }
+
