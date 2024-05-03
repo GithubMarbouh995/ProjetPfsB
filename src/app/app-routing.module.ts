@@ -5,6 +5,8 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { DetailArticleComponent } from './composants/detail-article/detail-article.component';
 import { ModalComponent } from './composants/modal/modal.component';
+import {BoutiquePageComponent} from "./pages/boutique-page/boutique-page.component";
+import {ProduitsBoutiqueComponent} from "./pages/produits-boutique/produits-boutique.component";
 
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
   { path: 'inscription', component: PageInscriptionComponent },
   { path: 'login', component: PageLoginComponent },
   { path: 'article', component: DetailArticleComponent },
-  { path: 'modal', component: ModalComponent }
+  { path: 'modal', component: ModalComponent },
+  {path : 'boutique', component : BoutiquePageComponent},
+  { path: 'produit', component: ProduitsBoutiqueComponent }
 
 ];
 
@@ -21,3 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

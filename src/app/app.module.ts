@@ -12,7 +12,11 @@ import { ModalComponent } from './composants/modal/modal.component';
 import {FormsModule} from "@angular/forms";
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import  { BoutiqueDetailComponent } from './composants/boutique-detail/boutique-detail.component';
+import { BoutiqueCardComponent } from './composants/boutique-card/boutique-card.component';
+import { ProduitsBoutiqueComponent } from './pages/produits-boutique/produits-boutique.component';
+import { BoutiquePageComponent } from './pages/boutique-page/boutique-page.component';
+import {BoutiqueDetailPageComponent} from "./pages/boutique-detail-page/boutique-detail-page.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     PageLoginComponent,
     DetailArticleComponent,
     ModalComponent,
-    PageHomeComponent
+    PageHomeComponent,
+    BoutiqueDetailComponent,
+    BoutiqueCardComponent,
+    ProduitsBoutiqueComponent,
+    BoutiquePageComponent,
+    BoutiqueDetailPageComponent
+
   ],
   imports: [
     BrowserModule,
