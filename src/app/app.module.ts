@@ -17,6 +17,8 @@ import { BoutiqueCardComponent } from './composants/boutique-card/boutique-card.
 import { ProduitsBoutiqueComponent } from './pages/produits-boutique/produits-boutique.component';
 import { BoutiquePageComponent } from './pages/boutique-page/boutique-page.component';
 import {BoutiqueDetailPageComponent} from "./pages/boutique-detail-page/boutique-detail-page.component";
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import {BoutiqueDetailPageComponent} from "./pages/boutique-detail-page/boutique
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

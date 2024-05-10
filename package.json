@@ -6,7 +6,13 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:local": "npm run lvt-api && ng serve -- --proxyConfig=proxy.conf.json",
+    "lvt-api": "npm run lvt-api:create-dist && npm run lvt-api:download && npm run lvt-api:extract && npm run lvt-api:swagger-gen",
+    "lvt-api:create-dist": "if not exist tools\\swagger\\dist mkdir tools\\swagger\\dist && if not exist tools\\swagger\\src mkdir tools\\swagger\\src",
+    "lvt-api:download": "copy C:\\projet_fullS\\SpringBoot\\locationdevetementstraditionnels\\target\\locationdevetementstraditionnels-0.0.1-SNAPSHOT.jar .\\tools\\swagger\\dist && copy C:\\projet_fullS\\SpringBoot\\locationdevetementstraditionnels\\target\\swagger.json .\\tools\\swagger\\src",
+    "lvt-api:extract": "node tools/swagger/src/swagger.json 0.0.1-SNAPSHOT",
+    "lvt-api:swagger-gen": "ng-swagger-gen -i ./tools/swagger/src/swagger.json -o ./src/lvt-api/src"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +24,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@auth0/angular-jwt": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^5.3.1",
     "bootstrap": "^4.6.2",
     "font-awesome": "^4.7.0",
@@ -36,6 +43,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^14.1.0",
+    "ng-swagger-gen": "^2.0.0",
     "typescript": "~4.7.2"
   }
 }

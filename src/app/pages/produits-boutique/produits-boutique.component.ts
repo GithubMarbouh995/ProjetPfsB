@@ -1,79 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProduitService } from '../../services/produit.service';
 
 @Component({
   selector: 'app-produits-boutique',
   templateUrl: './produits-boutique.component.html',
   styleUrls: ['./produits-boutique.component.css']
 })
-export class ProduitsBoutiqueComponent {
+export class ProduitsBoutiqueComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute){}
-
-  Allproduits = [
-    {
-    "image" : "../../assets/images/20240209225327235763A.JPEG",
-    "nom": 'Caftan Randa Maman Fille',
-    "etat": 'Neuf',
-    "prix": '1000'
-    },
-    {
-      "image": '../../assets/images/20240209225327235763A.JPEG',
-      "nom": 'Caftan Randa Maman Fille',
-      "etat": 'Neuf',
-      "prix": '1000'
-      },
-      {
-        "image" : "../../assets/images/20240209225327235763A.JPEG",
-        "nom": 'Caftan Randa Maman Fille',
-        "etat": 'Neuf',
-        "prix": '1000'
-        },
-        {
-          "image" : "../../assets/images/20240209225327235763A.JPEG",
-          "nom": 'Caftan Randa Maman Fille',
-          "etat": 'Neuf',
-          "prix": '1000'
-          },
-          {
-            "image" : "../../assets/images/20240209225327235763A.JPEG",
-            "nom": 'Caftan Randa Maman Fille',
-            "etat": 'Neuf',
-            "prix": '1000'
-            },
-            {
-              "image" : "../../assets/images/20240209225327235763A.JPEG",
-              "nom": 'Caftan Randa Maman Fille',
-              "etat": 'Neuf',
-              "prix": '1000'
-              },
-              {
-                "image" : "../../assets/images/20240209225327235763A.JPEG",
-                "nom": 'Test',
-                "etat": 'Neuf',
-                "prix": '1000'
-                },
-                {
-                  "image" : "../../assets/images/20240209225327235763A.JPEG",
-                  "nom": 'Caftan Randa Maman Fille',
-                  "etat": 'Neuf',
-                  "prix": '1000'
-                  },
-                  {
-                    "image" : "../../assets/images/20240209225327235763A.JPEG",
-                    "nom": 'Caftan Randa Maman Fille',
-                    "etat": 'Neuf',
-                    "prix": '1000'
-                    }
-    ];
-    produits: any[]=[]// Liste des produits
+  produits: any[] = []; // Liste des produits
   page: number = 1; // Page actuelle
   produitsParPage: number = 6; // Nombre de produits par page
-// Injectez votre service de produits
-ngOnInit() {
-  this.getProduits();
-}
 
+  constructor(private route: ActivatedRoute, private produitService: ProduitService) {}
+
+  ngOnInit() {
+    this.getProduits();
+  }
+  favoris(productId: number, elementId: string): void {
+    // Add the product to the list of favorites
+    // This is just a placeholder. Replace with your actual implementation.
+    console.log(`Product ${productId} added to favorites`);
+
+    // Change the image source to indicate that the product is favorited
+    let element = document.getElementById(elementId) as HTMLImageElement;
+    element.src = "../../assets/images/likefilled_1.png";
+  }
   precedent() {
     if (this.page > 1) {
       this.page--;
@@ -87,9 +40,14 @@ ngOnInit() {
   }
 
   getProduits() {
-    const startIndex = (this.page - 1) * this.produitsParPage;
-    const endIndex = this.page * this.produitsParPage;
-    this.produits = this.Allproduits.slice(startIndex, endIndex);
+    this.produitService.getAllProduits().subscribe(data => {
+      const startIndex = (this.page - 1) * this.produitsParPage;
+      const endIndex = this.page * this.produitsParPage;
+      this.produits = data.slice(startIndex, endIndex);
+      console.log("Produits")
+      console.log(this.produits);
+    });
   }
 
+  protected readonly HTMLElement = HTMLElement;
 }

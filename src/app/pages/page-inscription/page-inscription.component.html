@@ -4,20 +4,25 @@
     <div class="row" style="width:46%; margin:0 auto;">
       <div class="col-12">
         <h2>Créer votre compte</h2>
-        <form action="https://app.beldilook.ma/fr/register" class="form_register pt-2" method="post">
-          <input name="_token" type="hidden" value="en5PhwFuG436crCIfSDZ3Cg3FvZieOElwZ2RJoXn">
+        <form (submit)="inscrire()" class="form_register pt-2">
           <div class="mb-3 mt-3">
-            <label for="pwd">Prénom :</label> <input class="form-control" id="prenom" name="prenom" required="" type="text" value="">
+            <label for="prenom">Prénom :</label>
+            <input class="form-control" id="prenom" name="prenom" required="" type="text" [(ngModel)]="registerRequest.prenom">
           </div>
           <div class="mb-3">
-            <label for="pwd">Nom :</label> <input class="form-control" id="nom" name="nom" placeholder="" required="" type="text" value="">
+            <label for="nom">Nom :</label>
+            <input class="form-control" id="nom" name="nom" placeholder="" required="" type="text" [(ngModel)]="registerRequest.nom">
           </div>
           <div class="mb-3 mt-3">
-            <label for="pwd">Email :</label> <input class="form-control" id="email" name="email" required="" type="email" value="">
+            <label for="email">Email :</label>
+            <input class="form-control" id="email" name="email" required="" type="email" [(ngModel)]="registerRequest.email">
           </div>
           <div class="mb-3">
-            <label for="pwd">Mot de passe :</label> <input class="form-control" id="pwd" name="pswd" required="" type="password" value="">
+            <label for="pwd">Mot de passe :</label>
+            <input class="form-control" id="pwd" name="pswd" required="" type="password" [(ngModel)]="registerRequest.moteDePasse">
           </div>
+          <!-- Ajout du champ caché pour le rôle -->
+          <input type="hidden" name="role" [(ngModel)]="registerRequest.role">
           <div>
             <button class="btn mt-4 btn-primary" style="width:100%;" type="submit">S'inscrire</button>
             <div class="or_separator text-center">

@@ -11,7 +11,7 @@ import {ProduitsBoutiqueComponent} from "./pages/produits-boutique/produits-bout
 
 const routes: Routes = [
   {path : '', component : PageHomeComponent},
-  { path: 'inscription', component: PageInscriptionComponent },
+  { path: 'inscrire', component: PageInscriptionComponent },
   { path: 'login', component: PageLoginComponent },
   { path: 'article', component: DetailArticleComponent },
   { path: 'modal', component: ModalComponent },
