@@ -9,6 +9,7 @@ import { ProduitsBoutiqueComponent } from "./pages/produits-boutique/produits-bo
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import 'tslib'; // Import the 'tslib' module
+import { BoutiqueDetailPageComponent } from './pages/boutique-detail-page/boutique-detail-page.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'login', component: PageLoginComponent },
   { path: 'article', component: DetailArticleComponent },
   { path: 'modal', component: ModalComponent },
-  { path: 'boutique', component: BoutiquePageComponent },
+  { path: 'boutiques', component: BoutiquePageComponent },
+  { path: 'boutiques/:id', component: BoutiqueDetailPageComponent },
   { path: 'produit', component: ProduitsBoutiqueComponent }
 
 ];
