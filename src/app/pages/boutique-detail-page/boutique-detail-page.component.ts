@@ -25,4 +25,8 @@ export class BoutiqueDetailPageComponent implements OnInit {
 
     return this.boutiques.find((boutique) => boutique.id == id);
   }
+  goToListProduits() {
+
+  }
+
 }
