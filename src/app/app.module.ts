@@ -18,7 +18,10 @@ import { ProduitsBoutiqueComponent } from './pages/produits-boutique/produits-bo
 import { BoutiquePageComponent } from './pages/boutique-page/boutique-page.component';
 import {BoutiqueDetailPageComponent} from "./pages/boutique-detail-page/boutique-detail-page.component";
 import { HttpClientModule } from '@angular/common/http';
-
+import { ProfileComponent } from './pages/profile/profile.component';
+import {ReportsComponent} from "./composants/reports/reports.component";
+import {UsersComponent} from "./composants/users/users.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 
 @NgModule({
   declarations: [
@@ -35,15 +38,21 @@ import { HttpClientModule } from '@angular/common/http';
     BoutiqueCardComponent,
     ProduitsBoutiqueComponent,
     BoutiquePageComponent,
-    BoutiqueDetailPageComponent
-
+    BoutiqueDetailPageComponent,
+    ProfileComponent,
+    ReportsComponent,
+    UsersComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

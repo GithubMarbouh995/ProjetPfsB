@@ -7,6 +7,9 @@ import { DetailArticleComponent } from './composants/detail-article/detail-artic
 import { ModalComponent } from './composants/modal/modal.component';
 import {BoutiquePageComponent} from "./pages/boutique-page/boutique-page.component";
 import {ProduitsBoutiqueComponent} from "./pages/produits-boutique/produits-boutique.component";
+import {ProfileComponent} from "./pages/profile/profile.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+
 
 
 const routes: Routes = [
@@ -16,7 +19,11 @@ const routes: Routes = [
   { path: 'article', component: DetailArticleComponent },
   { path: 'modal', component: ModalComponent },
   {path : 'boutique', component : BoutiquePageComponent},
-  { path: 'produit', component: ProduitsBoutiqueComponent }
+  { path: 'produit', component: ProduitsBoutiqueComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'admin', component: DashboardComponent },
+
+
 
 ];
 
