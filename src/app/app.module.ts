@@ -20,6 +20,7 @@ import {BoutiqueDetailPageComponent} from "./pages/boutique-detail-page/boutique
 import { HttpClientModule } from '@angular/common/http';
 import { CommentaireComponent } from './pages/boutique-detail-page/commentaire/commentaire.component';
 import { PageReservationComponent } from './pages/page-reservation/page-reservation.component';
+import { PageRechercheComponent } from './pages/page-recherche/page-recherche.component';
 
 
 @NgModule({
@@ -39,8 +40,8 @@ import { PageReservationComponent } from './pages/page-reservation/page-reservat
     BoutiquePageComponent,
     BoutiqueDetailPageComponent,
     PageReservationComponent,
-    CommentaireComponent
-
+    CommentaireComponent,
+    PageRechercheComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,18 @@
 <app-header></app-header>
 <br>
+<h1 style="color:#263066;text-align: center;margin-bottom:20px;margin-top:20px;">Offres de vente</h1>
+<br>
+<br>
+<div class="input-group" style="width: 50%; margin: auto;">
+    <input class="form-control input-sm" name="rechercher" placeholder="Recherche" type="text" style="height: 30px;"
+    (keyup)="search(rechercher.value)" #rechercher >
+    <div class="input-group-append">
+        <button class="btn" type="button">
+            <img src="src/assets/images/searchbl_1.png" alt="Search">
+        </button>
+    </div>
+</div>
+<br>
 <br>
 <br>
 <div class="row" id="  width_card col-lg-3 col-md-4 col-sm-6 col-6 p-1 d-flex justify-content-center">
@@ -11,7 +24,7 @@
           <img [src]="image.url" class="card-img-top img_product img-fluid" alt="product_card" style="height: 400px;object-fit: cover;">
         </div>
       </a>
-      <img #favIcon [id]="'art' + produit.id" (click)="favoris(produit.id, favIcon.id)" class="topright pointer" height="30" width="30" src="../../assets/images/likevide_1.png" alt="">
+      <img #favIcon [id]="'art' + produit.id" class="topright pointer" height="30" width="30" src="../../assets/images/likevide_1.png" alt="">
       <div class="card-body p-2" style="text-align: center;">
       <p class="mb-1"> <a href="">vendeur1250</a></p>
         <h5 class="card-title mb-1">{{ produit.nom }}</h5>
@@ -21,8 +34,16 @@
       </div>
     </div>
   </div>
-<div class="mt-5" style="text-align: center;padding-bottom:50px">
-  <a (click)="precedent()" class="paginationa" style="cursor: pointer">❮</a>
-  <a (click)="suivant()" class="paginationa" style="cursor: pointer">❯</a>
-</div>
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <app-footer></app-footer>

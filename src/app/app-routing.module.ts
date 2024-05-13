@@ -9,7 +9,7 @@ import {BoutiquePageComponent} from "./pages/boutique-page/boutique-page.compone
 import {ProduitsBoutiqueComponent} from "./pages/produits-boutique/produits-boutique.component";
 import { PageReservationComponent } from './pages/page-reservation/page-reservation.component';
 import { BoutiqueDetailPageComponent } from './pages/boutique-detail-page/boutique-detail-page.component';
-
+import { PageRechercheComponent } from './pages/page-recherche/page-recherche.component';
 
 const routes: Routes = [
   {path : '', component : PageHomeComponent},
@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'boutique', component: BoutiquePageComponent },
   { path: 'boutique/:id/produits', component: ProduitsBoutiqueComponent },
   { path: 'reservation/:id', component: PageReservationComponent },
-  { path: 'boutiques/:id', component: BoutiqueDetailPageComponent }
+  { path: 'boutiques/:id', component: BoutiqueDetailPageComponent },
+  { path: 'recherche', component: PageRechercheComponent }
   
 ];
 

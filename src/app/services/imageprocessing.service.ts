@@ -30,20 +30,22 @@ export class ImageprocessingService {
   }
 
   public createImagesBoutique(boutique: Boutique) {
-    const Imageproduit: any[] = boutique.boutiqueImage;
-    const ImageproduitFileHandle: FileHandle[] = [];
-    for (let i = 0; i < Imageproduit.length; i++) {
-      const imageFileData = Imageproduit[i];
+    console.log(boutique);
+    const Imageboutique: any[] = boutique.images;
+    console.log(Imageboutique);
+    const ImageboutiqueFileHandle: FileHandle[] = [];
+    for (let i = 0; i < Imageboutique.length; i++) {
+      const imageFileData = Imageboutique[i];
       const imageBlob = this.dataURItoBlob(imageFileData.picByte, imageFileData.type);
       const imageFile = new File([imageBlob],imageFileData.name , {type: imageFileData.type});
       const finalFileHandle :FileHandle = {
         file: imageFile,
         url: this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(imageFile))
       };
-      ImageproduitFileHandle.push(finalFileHandle);
+      ImageboutiqueFileHandle.push(finalFileHandle);
     }
 
-    boutique.boutiqueImage = ImageproduitFileHandle;
+    boutique.images = ImageboutiqueFileHandle;
     return boutique;
   }
 

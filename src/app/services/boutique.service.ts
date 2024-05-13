@@ -6,28 +6,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BoutiqueService {
-  private apiUrl = 'http://localhost:8081/api'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8081/api/boutiques'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/boutiques`);
+    return this.http.get(`${this.apiUrl}`);
   }
 
   findById(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/boutiques/${id}`);
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 
   saveOrUpdate(boutique: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/boutiques`, boutique);
+    return this.http.post(`${this.apiUrl}/createBoutique`, boutique);
   }
 
   deleteById(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/boutiques/${id}`);
+    return this.http.delete(`${this.apiUrl}/delete/${id}`);
   }
 
   getAllProduitsFromBoutique(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/boutiques/${id}/produit`);
+    return this.http.get(`${this.apiUrl}/${id}/produit`);
   }
   
 }

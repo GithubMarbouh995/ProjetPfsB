@@ -5,7 +5,7 @@
     <!-- <a href="https://app.beldilook.ma/fr/boutiqua/488" > -->
     <a [routerLink]="'/boutiques/' + boutique.id">
         <!-- <img src="src/assets/images/202403201050332181A.JPEG" class="card-img-top img_product img-fluid" alt="product_card"> -->
-        <div *ngFor="let image of boutique.boutiqueImage">
+        <div *ngFor="let image of boutique.images">
             <img [src]="image.url" class="card-img-top img_product img-fluid" alt="product_card" >
           </div>
     </a>
@@ -22,6 +22,6 @@
 
 
     <div class="card-body p-2 ">
-        <p class="card-title text" data-toggle="almass collection ">{{boutique.nom}} </p>
+        <p class="card-title text text-center" data-toggle="almass collection ">{{boutique.nom}} </p>
     </div>
 </div>
