@@ -13,11 +13,13 @@ declare let window: Window;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isdisplayed = false;
 
   constructor(
 
   ) { }
   ngOnInit(): void {
+    localStorage.getItem('isLoggedIn') === 'true' ? this.isdisplayed = true : this.isdisplayed = false;
     // window.dataLayer = window.dataLayer || [];
     // window.gtag('js', new Date());
     // window.gtag('config', 'G-XXXXXXXXXX');

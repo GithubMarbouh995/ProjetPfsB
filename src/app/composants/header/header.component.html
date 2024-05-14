@@ -17,7 +17,7 @@
       <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12">
         <ul class="navbar-nav ml-auto d-flex flex-row justify-content-around align-items-center">
           <li class="nav-item bg-light p-1 border_log">
-            <a class="nav-link p-0 text-dark m-2"  routerLink="/login"> Se connecter </a>
+            <a *ngIf="!isdisplayed" class="nav-link p-0 text-dark m-2"  routerLink="/login"> Se connecter </a>
           </li>
 <!--          <li class="nav-item bg-light p-1 border_log">-->
 <!--&lt;!&ndash;            <button routerLink="/inscription" class="nav-link p-0 text-dark">  &ndash;&gt;-->
@@ -26,7 +26,7 @@
 <!--            <a class="nav-link p-0 text-dark" routerLink="/inscription">S'inscrire</a>-->
 <!--          </li>-->
           <li class="nav-item bg-light p-1 border_log">
-            <a class="nav-link p-0 text-dark m-2" routerLink="/inscrire"> S'inscrire </a>
+            <a *ngIf="!isdisplayed" class="nav-link p-0 text-dark m-2" routerLink="/inscrire" > S'inscrire </a>
           </li>
         </ul>
       </div>

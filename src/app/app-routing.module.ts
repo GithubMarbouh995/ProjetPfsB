@@ -12,6 +12,7 @@ import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 
 
 
+
 const routes: Routes = [
   {path : '', component : PageHomeComponent},
   { path: 'inscrire', component: PageInscriptionComponent },
@@ -22,9 +23,6 @@ const routes: Routes = [
   { path: 'produit', component: ProduitsBoutiqueComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'admin', component: DashboardComponent },
-
-
-
 ];
 
 @NgModule({
