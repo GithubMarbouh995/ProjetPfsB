@@ -14,7 +14,12 @@
   color: white;
 
 }
+.profile-container {
+  position: absolute; /* Positionnement absolu par rapport à l'élément parent */
+  /*top: 0; !* Alignement en haut *!*/
+  right: 25em; /* Alignement à droite */
 
+}
 @media  screen and (max-width: 960px) {
   .responsive {
     flex-direction: column;

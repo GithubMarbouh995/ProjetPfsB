@@ -19,22 +19,84 @@
           <li class="nav-item bg-light p-1 border_log">
             <a *ngIf="!isdisplayed" class="nav-link p-0 text-dark m-2"  routerLink="/login"> Se connecter </a>
           </li>
-<!--          <li class="nav-item bg-light p-1 border_log">-->
-<!--&lt;!&ndash;            <button routerLink="/inscription" class="nav-link p-0 text-dark">  &ndash;&gt;-->
-<!--&lt;!&ndash;            S'inscrire &ndash;&gt;-->
-<!--&lt;!&ndash;            </button>  &ndash;&gt;-->
-<!--            <a class="nav-link p-0 text-dark" routerLink="/inscription">S'inscrire</a>-->
-<!--          </li>-->
+
           <li class="nav-item bg-light p-1 border_log">
             <a *ngIf="!isdisplayed" class="nav-link p-0 text-dark m-2" routerLink="/inscrire" > S'inscrire </a>
           </li>
         </ul>
       </div>
+      <!--      debut-profile-->
+
+
+
+<!--        <ul *ngIf="isdisplayed"  class="navbar-nav justify-content-around align-items-center profile-container">-->
+<!--          <div class="nav-item dropdown">-->
+<!--            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--              <img src="assets/images/user.png" alt="avatar" class="img_avatar image_obligatoire">-->
+
+<!--              <span class="text-light">-->
+<!--                john doe-->
+<!--              </span>-->
+
+<!--            </a>-->
+<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">-->
+<!--              <a class="dropdown-item" style="cursor: pointer;">Mon solde : 0,00 DH</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/myaccount'">Mon compte</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/devenir_vendeur'">Devenir vendeur</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/achats'">Mes achats</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/notifications'">Mes notifications</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/adresse_livraison'">Mes adresses de livraison</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/mes_favoris'">Mes favoris</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/chat_support'">Contacter support</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/suppression_compte'">Supprimer mon compte</a>-->
+<!--              <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/logout'">Se déconnecter</a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+<!--              <a href="https://app.beldilook.ma/fr/notifications">-->
+<!--                <img src="https://app.beldilook.ma/storage/568182.png" class="bell_not bell image_obligatoire" alt="bell">-->
+<!--              </a>-->
+
+<!--        </ul>-->
+      <ul *ngIf="isdisplayed"  class="navbar-nav justify-content-around align-items-center profile-container d-flex align-items-center">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="assets/images/user.png" alt="avatar" class="img_avatar image_obligatoire">
+
+            <span class="text-light">
+        john doe
+      </span>
+
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" style="cursor: pointer;">Mon solde : 0,00 DH</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/myaccount'">Mon compte</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/devenir_vendeur'">Devenir vendeur</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/achats'">Mes achats</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/notifications'">Mes notifications</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/adresse_livraison'">Mes adresses de livraison</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/mes_favoris'">Mes favoris</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/chat_support'">Contacter support</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/suppression_compte'">Supprimer mon compte</a>
+            <a class="dropdown-item" [href]="'https://app.beldilook.ma/fr/logout'">Se déconnecter</a>          </div>
+        </div>
+
+        <a href="https://app.beldilook.ma/fr/notifications">
+          <img src="https://app.beldilook.ma/storage/568182.png" class="bell_not bell image_obligatoire" alt="bell">
+        </a>
+      </ul>
+
+      <!--      fin profile-->
+
+
       <div class="col-lg-1 col-xl-1 col-md-12 col-sm-12">
         <div class="nav-item dropdown text-light">
           <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle text-dark text-center text-light" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"><img alt="language" class="image_obligatoire" src="assets/images/download-removebg-preview.png" style="height: 27px;"></a>
           <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right text-light">
-            <a class="dropdown-item" href="https://app.beldilook.ma/fr/change_langue/en">Anglais</a> <a class="dropdown-item" href="https://app.beldilook.ma/fr/change_langue/fr">Francais</a> <a class="dropdown-item" href="https://app.beldilook.ma/fr/change_langue/ar">Arabe</a>
+            <a class="dropdown-item" href="https://app.beldilook.ma/fr/change_langue/en">Anglais</a>
+            <a class="dropdown-item" href="https://app.beldilook.ma/fr/change_langue/fr">Francais</a>
+            <a class="dropdown-item" href="https://app.beldilook.ma/fr/change_langue/ar">Arabe</a>
           </div>
         </div>
       </div>
