@@ -6,13 +6,16 @@ export interface Reservation  {
   client?: Client;
   code?: string;
   creationDate?: number;
-  creneauEssayage?: CreneauEssayage;
   dateDebut?: string;
   dateFin?: string;
   etat?: string;
   id?: number;
+  id_client?: number;
+  id_produit?: number;
   lastModifiedDate?: number;
   produit?: Produit;
   quantite?: number;
   status?: string;
+  creneauEssayage: CreneauEssayage | undefined;
+ 
 }

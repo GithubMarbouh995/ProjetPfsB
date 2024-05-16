@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreneauEssayageService {
-  private apiUrl = 'http://localhost:8081'; // Replace with your API's URL
+  private apiUrl = 'http://localhost:8081/api/v1/creneau-essayage'; // Replace with your API's URL
 
   constructor(private http: HttpClient) { }
 
   save(creneauEssayage: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/creneauEssayage`, creneauEssayage);
+    return this.http.post(`${this.apiUrl}/add`, creneauEssayage);
   }
 
   update(creneauEssayage: any): Observable<any> {

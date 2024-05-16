@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReservationService {
-  private apiUrl = 'http://localhost:8081//api/v1'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8081/api/v1'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) { }
 
   reserver(reservation: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/reservation`, reservation);
+    return this.http.post(`${this.apiUrl}/reservation/add`, reservation);
   }
 
   modifierReservation(reservation: any): Observable<any> {

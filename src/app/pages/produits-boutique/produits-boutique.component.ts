@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProduitService } from '../../services/produit.service';
-
+import { BoutiqueService } from '../../services/boutique.service';
+import { Produit } from 'src/lvt-api/src/models/produit';
+import { Boutique } from 'src/app/models/Boutique';
+import { ImageprocessingService } from '../../services/imageprocessing.service';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-produits-boutique',
   templateUrl: './produits-boutique.component.html',
   styleUrls: ['./produits-boutique.component.css']
 })
 export class ProduitsBoutiqueComponent implements OnInit {
-
-  produits: any[] = []; // Liste des produits
+  // Boutique
+  boutiqueId: number = 0; // Identifiant de la boutique
+  produits: Produit[] = []; // Liste des produits
   page: number = 1; // Page actuelle
   produitsParPage: number = 6; // Nombre de produits par page
 
-  constructor(private route: ActivatedRoute, private produitService: ProduitService) {}
+  constructor(private route: ActivatedRoute, private produitService: ProduitService, private boutiqueService: BoutiqueService, 
+    private imageService: ImageprocessingService
+  ) {}
 
   ngOnInit() {
-    this.getProduits();
+    this.getProduitsByBoutique();
   }
   favoris(productId: number, elementId: string): void {
     // Add the product to the list of favorites
@@ -30,17 +37,22 @@ export class ProduitsBoutiqueComponent implements OnInit {
   precedent() {
     if (this.page > 1) {
       this.page--;
-      this.getProduits();
+      this.getProduitsByBoutique();
     }
   }
 
   suivant() {
     this.page++;
-    this.getProduits();
+    this.getProduitsByBoutique();
   }
 
-  getProduits() {
-    this.produitService.getAllProduits().subscribe(data => {
+
+  getProduitsByBoutique() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.boutiqueId = id;
+    this.boutiqueService.getAllProduitsFromBoutique(id).pipe(
+      map((produits: Produit[]) => produits.map(produit => this.imageService.createImages(produit)))
+    ).subscribe(data => {
       const startIndex = (this.page - 1) * this.produitsParPage;
       const endIndex = this.page * this.produitsParPage;
       this.produits = data.slice(startIndex, endIndex);

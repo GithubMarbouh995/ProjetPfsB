@@ -6,12 +6,12 @@ import { Produit } from '../../lvt-api/src/models/produit';
   providedIn: 'root'
 })
 export class ProduitService {
-  private apiUrl = 'http://localhost:8081/api/v1/produit';
+  private apiUrl = 'http://localhost:8081/api/produits';
 
   constructor(private http: HttpClient) { }
 
   ajouterProduit(produit: Produit): Observable<Produit> {
-    return this.http.post<Produit>(`${this.apiUrl}/produit`, produit);
+    return this.http.post<Produit>(`${this.apiUrl}/ajouterProduit`, produit);
   }
 
   getAllProduits(): Observable<Produit[]> {
@@ -19,18 +19,31 @@ export class ProduitService {
   }
 
   supprimerProduit(id_produit: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/produit/${id_produit}`);
+    return this.http.delete(`${this.apiUrl}/supprimerProduit/${id_produit}`);
   }
 
   updateProduit(ProduitId: number, produit: Produit): Observable<Produit> {
-    return this.http.put<Produit>(`${this.apiUrl}/produit/${ProduitId}`, produit);
+    return this.http.put<Produit>(`${this.apiUrl}/updateProduit/${ProduitId}`, produit);
   }
 
   getProduitsDispoPourCreneau(id_creneau: number): Observable<Produit[]> {
-    return this.http.get<Produit[]>(`${this.apiUrl}/produit/creneau/${id_creneau}`);
+    return this.http.get<Produit[]>(`${this.apiUrl}/getProduitsDispoPourCreneau/${id_creneau}`);
   }
 
   getCreneauxPourProduit(id_produit: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/produit/${id_produit}/creneaux`);
+    return this.http.get(`${this.apiUrl}/getCreneauxPourProduit/${id_produit}`);
   }
+
+  getProduit(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getProduit/${id}`);
+  }
+
+  getSuggestions(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getSuggestions/${id}`);
+  }
+
+  searchProduit(mot : string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search?mot=${mot}`);
+  }
+  
 }

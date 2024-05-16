@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProduitService } from '../../services/produit.service';
+import { BoutiqueService } from '../../services/boutique.service';
+import { Produit } from 'src/lvt-api/src/models/produit';
+import { Boutique } from 'src/app/models/Boutique';
+import { ImageprocessingService } from '../../services/imageprocessing.service';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-detail-article',
   templateUrl: './detail-article.component.html',
@@ -6,45 +13,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailArticleComponent implements OnInit {
 
-  article: any;
-  prix ?: string;
-  taille ?: string;
-  couleur ?: string;
-  recipient ?: string;
-  message ?: string;
+  produit : Produit[]  = [];
+  suggestions : Produit[] = [];
+  produitId: number = 0;
+  id?: string;
 
-  openModal(recipient: string) {
-    this.recipient = recipient;
-    // You can also make an AJAX request here to fetch data and update the modal content
-  }
+  constructor(private route: ActivatedRoute, private produitService: ProduitService, private imageService: ImageprocessingService
+  ) {}
 
-  closeModal() {
-    this.recipient = '';
-  }
+  favoris(productId: number, elementId: string): void {
+    // Add the product to the list of favorites
+    // This is just a placeholder. Replace with your actual implementation.
+    console.log(`Product ${productId} added to favorites`);
 
-  sendMessage() {
-    console.log('Send message');
+    // Change the image source to indicate that the product is favorited
+    let element = document.getElementById(elementId) as HTMLImageElement;
+    element.src = "../../assets/images/likefilled_1.png";
   }
-  constructor() { }
 
   ngOnInit(): void {
-    // Initialize product data
+    this.getProduit();
+    this.getSuggestions();
+  }
+  
+  getProduit() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.produitId = id;
+    this.produitService.getProduit(id).pipe(
+      map((produits: Produit | Produit[]) => {
+        if (Array.isArray(produits)) {
+          return produits.map(produit => this.imageService.createImages(produit));
+        } else {
+          return [this.imageService.createImages(produits)];
+        }
+      })
+    ).subscribe(data => {
+      this.produit = data;
+      console.log("Produits");
+      console.log(this.produit);
+    }, error => {
+      console.error("Error fetching produit:", error);
+    });
   }
 
-  favoris(id: number, art: string): void {
-    // Make API request to add to favorites
-  }
+  getSuggestions() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.produitService.getSuggestions(id).pipe(
+      map((produits: Produit | Produit[]) => {
+        if (Array.isArray(produits)) {
+          return produits.map(produit => this.imageService.createImages(produit));
+        } else {
+          return [this.imageService.createImages(produits)];
+        }
+      })
+    ).subscribe(data => {
+      this.suggestions = data;
+      console.log("Produits");
+      console.log(this.suggestions);
+    }, error => {
+      console.error("Error fetching produit:", error);
+    });
 
-  get_prix(pr: string): void {
-    // Update prix variable
   }
-
-  get_color(taille: string): void {
-    // Update couleur variable
-  }
-
-  change_image(im: string): void {
-    // Change image of the product
-  }
-
+  
+  protected readonly HTMLElement = HTMLElement;
 }

@@ -1,15 +1,23 @@
 <app-header></app-header>
-<div class="row" id="div_articles">
-  <div *ngFor="let produit of produits" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 d-flex flex-column move-right custom-size">
-    <div class="card card_content border-0">
-      <a [href]="'https://app.beldilook.ma/fr/produit/' + produit.id">
-        <img [src]="produit.image" class="card-img-top img_product img-fluid" alt="product_card">
+<br>
+<br>
+<br>
+<div class="row" id="  width_card col-lg-3 col-md-4 col-sm-6 col-6 p-1 d-flex justify-content-center">
+  <div *ngFor="let produit of produits " class="col-xl-3 col-lg-3 col-md-4 col-sm-2 d-flex articles_boutique_une" style="justify-content: center">
+  <!-- <div *ngFor="let produit of produits" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 d-flex flex-column move-right custom-size"> -->
+    <div class="card card_content border-0" style="margin-left: 20px;margin-bottom: 20px; background-color:  #e5e7e9 ;">
+      <a  routerLink="/article/{{produit.id}}">
+        <div *ngFor="let image of produit.images">
+          <img [src]="image.url" class="card-img-top img_product img-fluid" alt="product_card" style="height: 400px;object-fit: cover;">
+        </div>
       </a>
       <img #favIcon [id]="'art' + produit.id" (click)="favoris(produit.id, favIcon.id)" class="topright pointer" height="30" width="30" src="../../assets/images/likevide_1.png" alt="">
-      <p class="mb-1"> <a [href]="'https://app.beldilook.ma/fr/boutiqua/' + produit.vendeurId">vendeur{{ produit.vendeurId }}</a></p>
+      <div class="card-body p-2" style="text-align: center;">
+      <p class="mb-1"> <a href="">vendeur1250</a></p>
         <h5 class="card-title mb-1">{{ produit.nom }}</h5>
-        <p style="font-size: 14px" class="card-text mb-1"> État : {{ produit.etat }} </p>
-        <p style="font-size: 14px" class="card-text mb-1">{{ produit.prix }} DH</p>
+        <p style="font-size: 14px" class="card-text mb-1"> Catégorie : {{ produit.categorie}} </p>
+        <p style="font-size: 14px;margin-bottom: 7px;" class="card-text ">{{ produit.prixLocation}} <span class="ml-1">DH</span></p>
+      </div>
       </div>
     </div>
   </div>
