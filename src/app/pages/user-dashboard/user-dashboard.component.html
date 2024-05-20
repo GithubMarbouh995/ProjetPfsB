@@ -18,15 +18,25 @@
                         <span class="fa fa-calendar mr-3"></span> Mes réservations
                     </a>
                 </li>
-                <li class="p-3">
-                    <a routerLink="historiques"><span class="fa-solid fa-clock-rotate-left mr-3"></span> Mon
-                        historique</a>
-                </li>
-                <li class="p-3">
+
+                <li class="p-3" *ngIf="4%2==0">
                     <a routerLink="profile"><span class="fa fa-user mr-3"></span> Mon profil</a>
                 </li>
                 <li class="p-3">
                     <a routerLink="devenir-vendeur"><span class="fa-solid fa-store mr-3"></span> Devenir vendeur ?</a>
+                </li>
+
+                <li class="p-3">
+                    <a routerLink="boutique"><span class="fa-solid fa-store mr-3"></span>
+                        Ma boutique</a>
+                </li>
+                <li class="p-3">
+                    <a routerLink="produits"><span class="fa-solid fa-basket-shopping mr-3"></span>Mes produits</a>
+                </li>
+                <li class="p-3">
+                    <a routerLink="reservationsEnAttente"><span
+                            class="fa-regular fa-hourglass-half mr-3"></span>Reservations en
+                        attente</a>
                 </li>
                 <li class="p-3">
                     <a href="#se-deconnecter"><span class="fa-solid fa-right-from-bracket mr-3"></span> Se

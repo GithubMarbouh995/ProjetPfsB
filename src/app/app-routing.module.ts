@@ -16,6 +16,9 @@ import { ReservationsComponent } from './pages/user-dashboard/reservations/reser
 import { ProfileComponent } from './pages/user-dashboard/profile/profile.component';
 import { HistoriquesComponent } from './pages/user-dashboard/historiques/historiques.component';
 import { DevenirVendeurComponent } from './pages/user-dashboard/devenir-vendeur/devenir-vendeur.component';
+import { MaBoutiqueComponent } from './pages/user-dashboard/vendeur/ma-boutique/ma-boutique.component';
+import { MesProduitsComponent } from './pages/user-dashboard/vendeur/mes-produits/mes-produits.component';
+import { ReservationAttenteComponent } from './pages/user-dashboard/reservation-attente/reservation-attente.component';
 
 const routes: Routes = [
   { path: '', component: PageHomeComponent },
@@ -36,6 +39,9 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'historiques', component: HistoriquesComponent },
       { path: 'devenir-vendeur', component: DevenirVendeurComponent },
+      { path: 'produits', component: MesProduitsComponent },
+      { path: 'boutique', component: MaBoutiqueComponent },
+      { path: 'reservationsEnAttente', component: ReservationAttenteComponent },
     ]
   }
 

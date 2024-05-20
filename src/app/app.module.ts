@@ -26,6 +26,12 @@ import { ReservationsComponent } from './pages/user-dashboard/reservations/reser
 import { HistoriquesComponent } from './pages/user-dashboard/historiques/historiques.component';
 import { ProfileComponent } from './pages/user-dashboard/profile/profile.component';
 import { DevenirVendeurComponent } from './pages/user-dashboard/devenir-vendeur/devenir-vendeur.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalCreateBoutiqueComponent } from './composants/modal-create-boutique/modal-create-boutique.component';
+import { MesProduitsComponent } from './pages/user-dashboard/vendeur/mes-produits/mes-produits.component';
+import { MaBoutiqueComponent } from './pages/user-dashboard/vendeur/ma-boutique/ma-boutique.component';
+import { ReservationAttenteComponent } from './pages/user-dashboard/reservation-attente/reservation-attente.component';
+import { ReservationAttenteCardComponent } from './composants/reservation-attente-card/reservation-attente-card.component';
 
 
 @NgModule({
@@ -52,13 +58,19 @@ import { DevenirVendeurComponent } from './pages/user-dashboard/devenir-vendeur/
     HistoriquesComponent,
     ProfileComponent,
     DevenirVendeurComponent,
+    ModalCreateBoutiqueComponent,
+    MesProduitsComponent,
+    MaBoutiqueComponent,
+    ReservationAttenteComponent,
+    ReservationAttenteCardComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
