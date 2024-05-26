@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AvisService {
-  private apiUrl = 'http://localhost:8081'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8081';
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +18,8 @@ export class AvisService {
     return this.http.get(`${this.apiUrl}/avis/${id}`);
   }
 
-  save(avis: any, boutique: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/avis`, { avis, boutique });
+  save(avis: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/avis/create`, { avis });
   }
 
   update(id: number): Observable<any> {

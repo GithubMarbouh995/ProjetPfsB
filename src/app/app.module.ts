@@ -6,17 +6,17 @@ import { HeaderComponent } from './composants/header/header.component';
 import { PaginationComponent } from './composants/pagination/pagination.component';
 import { PageInscriptionComponent } from './pages/page-inscription/page-inscription.component';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
-import {FooterComponent} from "./composants/footer/footer.component";
+import { FooterComponent } from "./composants/footer/footer.component";
 import { DetailArticleComponent } from './composants/detail-article/detail-article.component';
 import { ModalComponent } from './composants/modal/modal.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PageHomeComponent } from './pages/page-home/page-home.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import  { BoutiqueDetailComponent } from './composants/boutique-detail/boutique-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BoutiqueDetailComponent } from './composants/boutique-detail/boutique-detail.component';
 import { BoutiqueCardComponent } from './composants/boutique-card/boutique-card.component';
 import { ProduitsBoutiqueComponent } from './pages/produits-boutique/produits-boutique.component';
 import { BoutiquePageComponent } from './pages/boutique-page/boutique-page.component';
-import {BoutiqueDetailPageComponent} from "./pages/boutique-detail-page/boutique-detail-page.component";
+import { BoutiqueDetailPageComponent } from "./pages/boutique-detail-page/boutique-detail-page.component";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommentaireComponent } from './pages/boutique-detail-page/commentaire/commentaire.component';
 import { PageReservationComponent } from './pages/page-reservation/page-reservation.component';
@@ -93,12 +93,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     TranslateModule.forRoot(
       {
-      loader:{
-        provide: TranslateLoader,
-        useFactory:HttpLoaderFactory,
-        deps: [HttpClient]
-    }
-    }
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      }
     )
   ],
   providers: [HttpClient],

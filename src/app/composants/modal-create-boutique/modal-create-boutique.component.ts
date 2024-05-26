@@ -11,7 +11,7 @@ import { BoutiqueService } from 'src/app/services/boutique.service';
   templateUrl: './modal-create-boutique.component.html',
   styleUrls: ['./modal-create-boutique.component.css']
 })
-export class ModalCreateBoutiqueComponent {
+  export class ModalCreateBoutiqueComponent {
 
   form: FormGroup;
   Boutique: Boutique={
