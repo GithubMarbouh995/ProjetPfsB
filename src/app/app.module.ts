@@ -41,6 +41,11 @@ import { MaBoutiqueComponent } from './pages/user-dashboard/vendeur/ma-boutique/
 import { ModalCreateBoutiqueComponent } from './composants/modal-create-boutique/modal-create-boutique.component';
 import { ReservationAttenteCardComponent } from './composants/reservation-attente-card/reservation-attente-card.component';
 import { LocationsComponent } from './pages/user-dashboard/locations/locations.component';
+import { ModalCreateProduitComponent } from './composants/modal-create-produit/modal-create-produit.component';
+import { ModalUpdateProduitComponent } from './composants/modal-update-produit/modal-update-produit.component';
+import { LocationAttenteComponent } from './pages/user-dashboard/location-attente/location-attente.component';
+import { LocationAttenteCardComponent } from './composants/location-attente-card/location-attente-card.component';
+import { SupprimerClientComponent } from './pages/user-dashboard/supprimer-client/supprimer-client.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -81,6 +86,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     ModalCreateBoutiqueComponent,
     ReservationAttenteCardComponent,
     LocationsComponent,
+    ModalCreateProduitComponent,
+    ModalUpdateProduitComponent,
+    LocationAttenteComponent,
+    LocationAttenteCardComponent,
+    SupprimerClientComponent,
   ],
   imports: [
     BrowserModule,

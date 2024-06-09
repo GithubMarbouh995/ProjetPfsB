@@ -1,14 +1,5 @@
 <div class="row">
-    <div class="col-4">
-        <app-reservation-attente-card></app-reservation-attente-card>
-    </div>
-    <div class="col-4">
-        <app-reservation-attente-card></app-reservation-attente-card>
-    </div>
-    <div class="col-4">
-        <app-reservation-attente-card></app-reservation-attente-card>
-    </div>
-    <div class="col">
-        <app-reservation-attente-card></app-reservation-attente-card>
+    <div class="col-4" *ngFor="let reservation of reservations">
+        <app-reservation-attente-card [reservation]="reservation"></app-reservation-attente-card>
     </div>
 </div>

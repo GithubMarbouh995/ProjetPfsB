@@ -19,5 +19,14 @@
     </div>
 </div>
 
-
+<div class="mt-5" style="text-align: center;padding-bottom:50px">
+    <div *ngIf="TotalBoutiques.length > boutiquesParPage">
+      <div *ngIf="page != 1">
+    <button (click)="precedent()" class="paginationa" style="cursor: pointer">❮</button> {{page}}
+      </div>
+      <div *ngIf="page < TotalBoutiques.length / boutiquesParPage">
+    <button (click)="suivant()" class="paginationa" style="cursor: pointer" [disabled]="page === TotalBoutiques.length / boutiquesParPage">❯</button>
+      </div> 
+  </div>
+</div>
 <app-footer></app-footer>

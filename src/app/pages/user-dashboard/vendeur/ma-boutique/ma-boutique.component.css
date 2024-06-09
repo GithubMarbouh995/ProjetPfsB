@@ -63,3 +63,8 @@ button:focus {
     box-shadow: none !important;
     outline-width: 0
 }
+.smaller-image {
+    width: 50%; /* Réduisez la taille de l'image à 50% */
+    float: left; /* Alignez l'image à gauche */
+    border: 2px solid black; /* Ajoutez une bordure de 2px, solide et noire */
+}

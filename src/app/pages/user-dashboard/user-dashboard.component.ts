@@ -5,13 +5,27 @@ import { Router } from '@angular/router';
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.css']
 })
-export class UserDashboardComponent {
+export class UserDashboardComponent implements OnInit{
   isSidebarOpen: boolean = false;
+  role?: string;
+  auth: string ='';
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
+  ngOnInit(): void {
+    this.role = localStorage.getItem('role') ?? undefined;
+    this.auth = localStorage.getItem('auth') || 'null';
+  }
+
+  logout(){
+    localStorage.setItem('auth', 'null');
+    localStorage.setItem('role', 'null');
+    this.role = 'null';
+    this.auth = 'null';
+    this.router.navigate(['/']);
+  }
 }

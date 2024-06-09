@@ -34,4 +34,10 @@ export class UtilisateurService {
   update(utilisateur: Utilisateur): Observable<any> {
     return this.http.put(`${this.apiUrl}/user/update`, utilisateur);
   }
+  deleteClient(id:number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/user/client/delete/${id}`);
+  }
+  getClients(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/user/clients`);
+  }
 }

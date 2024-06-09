@@ -18,22 +18,26 @@
                                                 <th scope="col">Date de Début</th>
                                                 <th scope="col">Date de Fin</th>
                                                 <th scope="col">Validation</th>
+                                                <th scope="col">Annuler</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
 
 
-                                            <tr *ngFor="let loc of Locations">
+                                            <tr *ngFor="let loc of Locations; let i = index">
                                                 <td>{{loc.produit.nom}}</td>
-                                                <td>Yoga</td>
+                                                <td>{{Boutiques[i].nom}}</td>
                                                 <td>{{loc.datedebut| date:'dd/MM/yyyy'}}</td>
                                                 <td>{{loc.datefin| date:'dd/MM/yyyy'}}</td>
                                                 <td>
                                                     <span *ngIf="loc.accepted; else notAccepted">Accepté</span>
                                                     <ng-template #notAccepted>EN ATTENTE</ng-template>
                                                 </td>
-                                            </tr>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger" (click)="deleteLocation(loc.id)">Annuler</button>
+                                                </td>
+                                                </tr>
 
 
                                         </tbody>

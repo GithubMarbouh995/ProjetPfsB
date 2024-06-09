@@ -25,9 +25,9 @@
                                         <tbody>
 
 
-                                            <tr *ngFor="let res of Rerservations">
+                                            <tr *ngFor="let res of Rerservations; let i = index">
                                                 <td>{{res.produit.nom}}</td>
-                                                <td>Yoga</td>
+                                                <td>{{Boutiques[i].nom}}</td>
                                                 <td>{{res.date| date:'dd/MM/yyyy'}}</td>
                                                 <td>{{res.date| date:'HH:mm'}}</td>
                                                 <td>

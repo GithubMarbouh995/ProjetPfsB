@@ -15,88 +15,55 @@
                                     <table class="table table-striped mb-0">
                                         <thead style="background-color: #002d72;">
                                             <tr>
-                                                <th scope="col">Produit</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Date de creation</th>
+                                                <th scope="col">Nom</th>
+                                                <th scope="col">Catégorie</th>
                                                 <th scope="col">Prix location </th>
+                                                <th scope="col">Date de creation</th>
+                                                <th scope="col">Image</th>
                                                 <th scope="col">Action</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
 
-
-                                            <tr>
-                                                <td>Playful Dancer's Flow</td>
-                                                <td>Yoga</td>
-                                                <td>8:00 AM - 9:00 AM</td>
-                                                <td>120 dh</td>
+                                            <tr *ngFor="let prod of produits ; let i = index">
+                                                <td>{{prod.nom}}</td>
+                                                <td>{{prod.categorie}}</td>
+                                                <td>{{prod.prixLocation}}</td>
+                                                <td>{{prod.creationDate| date:'dd/MM/yyyy'}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary">Modifier</button>
-                                                    <button type="button" class="btn btn-danger">Supprimer</button>
+                                                    <img src="assets/images/picture_10422137.png" class="my-image" data-toggle="modal"  [attr.data-target]="'#myModal' + i">
+                                                    
+                                                    <!-- The Modal -->
+                                                    <div class="modal" id="myModal{{i}}">
+                                                        <div class="modal-dialog">
+
+                                                            <div class="modal-content">
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">{{prod.nom}}</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body">
+                                                                    <div  *ngFor="let image of prod.images">
+                                                                        <img [src]="image.url" class="card-img-top img_product img-fluid smaller-image" alt="product_card" >
+                                                                     </div>
+                                                                </div>
+                                                                <!-- Modal footer -->
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger mr-2" (click)="supprimer(prod.id)">Supprimer</button>
+                                                    <button type="button" class="btn btn-danger" (click)="showUpdateProduitForm = true" (click)="this.index = index">Modifier</button>
                                                 </td>
                                             </tr>
-
-
-                                            <tr>
-                                                <td>Pilates Reformer</td>
-                                                <td>Gym</td>
-                                                <td>8:00 AM - 9:00 AM</td>
-                                                <td>120 dh</td>
-
-                                                <td>
-                                                    <button type="button" class="btn btn-primary">Modifier</button>
-                                                    <button type="button" class="btn btn-danger">Supprimer</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Supple Spine and Shoulders</td>
-                                                <td>Yoga</td>
-                                                <td>6:30 AM - 8:00 AM</td>
-                                                <td>120 dh</td>
-
-                                                <td>
-                                                    <button type="button" class="btn btn-primary">Modifier</button>
-                                                    <button type="button" class="btn btn-danger">Supprimer</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Yoga for Divas</td>
-                                                <td>Yoga</td>
-                                                <td>9:00 AM - 11:00 AM</td>
-                                                <td>120 dh</td>
-
-                                                <td>
-                                                    <button type="button" class="btn btn-primary">Modifier</button>
-                                                    <button type="button" class="btn btn-danger">Supprimer</button>
-                                                </td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td>Zumba Dance</td>
-                                                <td>Dance</td>
-                                                <td>5:00 PM - 7:00 PM</td>
-                                                <td>120 dh</td>
-
-                                                <td>
-                                                    <button type="button" class="btn btn-primary">Modifier</button>
-                                                    <button type="button" class="btn btn-danger">Supprimer</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cardio Blast</td>
-                                                <td>Gym</td>
-                                                <td>5:00 PM - 7:00 PM</td>
-                                                <td>120 dh</td>
-
-                                                <td>
-                                                    <button type="button" class="btn btn-primary">Modifier</button>
-                                                    <button type="button" class="btn btn-danger">Supprimer</button>
-                                                </td>
-                                            </tr>
-
+                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -104,7 +71,13 @@
                         </div>
                     </div>
                 </div>
+                <button class="btn btn-success" (click)="showNewProduitForm = true">
+                    <span class="fa-solid fa-store mr-3"></span>
+                    <span style="font-size: 12px;">Ajouter Produit</span>
+                </button>
             </div>
         </div>
     </div>
 </section>
+<app-modal-create-produit  class="BoutiqueForm" *ngIf="showNewProduitForm"></app-modal-create-produit>
+<app-modal-update-produit  class = "BoutiqueForm" *ngIf="showUpdateProduitForm" [produit]="produits[index]"></app-modal-update-produit>

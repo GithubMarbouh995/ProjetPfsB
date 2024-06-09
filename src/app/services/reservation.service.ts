@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Reservation } from '../models/Reservation';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,11 @@ export class ReservationService {
   }
   getByClient(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}reservation/client/${id}`);
+  }
+  getNotAccepted(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}reservation/attente/${id}`);
+  }
+  update(reservation: Reservation): Observable<any> {
+    return this.http.put(`${this.apiUrl}reservation/update`, reservation);
   }
 }

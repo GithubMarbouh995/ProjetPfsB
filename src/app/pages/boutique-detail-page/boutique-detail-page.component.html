@@ -79,57 +79,27 @@
     <!-- <app-commentaire class=""></app-commentaire> -->
     <h4>{{'Avis' | translate}} : </h4>
     <div class="row">
-      <div class="col-5 d-block align-items-start ">
-
-        <h4>4.8</h4>
-        <div class="rating">
-          <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-
-        </div>
-
-      </div>
       <div class="col-5">
 
-        <div class="commentaire">
+        <div class="commentaire" *ngFor="let avis of avis; let i = index">
           <div class="client-img">
 
             <img src="" alt="">
           </div>
           <div class="client">
             <div class="d-flex align-items-start ">
-              <h5 class="mr-2">AAMMAR ANWAR</h5>
-              <span>3h</span>
+              <h4 class="mr-2">{{clients[i].nom}} {{clients[i].prenom}}</h4>
             </div>
 
 
-            <p>Tres bon service !</p>
+            <p>{{avis.commentaire}}</p>
           </div>
         </div>
 
-        <div class="commentaire">
-          <div class="client-img">
-
-            <img src="" alt="">
-          </div>
-          <div class="client">
-            <div class="d-flex align-items-start ">
-              <h5 class="mr-2">AAMMAR ANWAR</h5>
-              <span>3h</span>
-            </div>
-
-
-            <p>Tres bon service !</p>
-          </div>
-        </div>
-
-
-
+        
       </div>
     </div>
-    <app-commentaire class=""></app-commentaire>
+    <app-commentaire class="" [id_boutique]="boutique.id"></app-commentaire>
 
   </div>
 

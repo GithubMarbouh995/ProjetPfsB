@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Produit } from 'src/lvt-api/src/models';
 import { FileHandle } from '../models/FileHandle';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Boutique } from '../models/Boutique';
+import { Boutique } from 'src/lvt-api/src/models/boutique';
 
 @Injectable({
   providedIn: 'root'

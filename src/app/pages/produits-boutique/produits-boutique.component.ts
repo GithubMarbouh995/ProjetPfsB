@@ -17,7 +17,7 @@ export class ProduitsBoutiqueComponent implements OnInit {
   produits: Produit[] = [];
   TotalProduits: Produit[] = [] // Liste des produits
   page: number = 1; // Page actuelle
-  produitsParPage: number = 2; // Nombre de produits par page
+  produitsParPage: number = 8; // Nombre de produits par page
 
   constructor(private route: ActivatedRoute, private produitService: ProduitService, private boutiqueService: BoutiqueService, 
     private imageService: ImageprocessingService

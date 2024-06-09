@@ -13,6 +13,12 @@ export class AppComponent {
   constructor(private translateService: TranslateService){
       this.translateService.setDefaultLang('fr');
       this.translateService.use(localStorage.getItem('lang') || 'fr');
+       if (!localStorage.getItem('auth')) {
+        localStorage.setItem('auth', 'null');
+      }
+      if (!localStorage.getItem('role')) {
+        localStorage.setItem('role', 'null');
+      }
       
   }
   title = 'locationvt';

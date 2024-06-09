@@ -36,27 +36,6 @@
   <p class="card-text mb-1" style="font-size: 14px">Notre plateforme offre également la possibilité de créer votre propre boutique et de devenir vendeur. Rejoignez notre communauté de vendeurs et faites croître votre entreprise avec nous.</p>
 </div>
 
-<h5 class="text-center pt-5 pb-5" style="font-size: 30px;">Autre produits </h5>
-  <div class="container">
-    <div class="row mb-3">
-      <div *ngFor="let produit of Recents | slice:0:4 " class="col-xl-3 col-lg-3 col-md-4 col-sm-2 d-flex articles_boutique_une" style="justify-content: center">
-        <div class="card card_content border-0">
-          <a [href]="'http://localhost:4200/article/' + produit.id">
-            <div *ngFor="let image of produit.images">
-              <img [src]="image.url" class="card-img-top img_product img-fluid" alt="product_card" style="height: 400px;object-fit: cover;">
-            </div>
-          </a>
-          <img alt="" class="topright pointer" height="30" [id]="'art' + produit.id" src="assets/images/likevide_1.png" width="30">
-          <div class="card-body p-2" style="text-align: center;">
-            <p class="mb-1"></p>
-            <h5 class="card-title mb-1">{{ produit.nom }}</h5>
-            <p class="card-text mb-1" style="font-size: 14px">Catégorie : {{ produit.categorie }}</p>
-            <p class="card-text mb-1" style="font-size: 14px">{{ produit.prixLocation }},00 DH</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   
 
 <app-footer></app-footer>

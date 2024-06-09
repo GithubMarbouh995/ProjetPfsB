@@ -8,7 +8,7 @@ export interface Produit  {
   categorie?: string;
   creationDate?: number;
   description?: string;
-  id: number;
+  id: any;
   id_boutique?: number;
   lastModifiedDate?: number;
   nom?: string;

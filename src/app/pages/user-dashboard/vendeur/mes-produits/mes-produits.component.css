@@ -26,3 +26,7 @@ thead {
   top: 0;
   position: sticky;
 }
+.my-image {
+  width: 25px;
+  height: auto;
+}

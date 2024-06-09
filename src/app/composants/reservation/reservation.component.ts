@@ -8,7 +8,7 @@ import { LocationService } from 'src/app/services/location.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProduitService } from 'src/app/services/produit.service';
 import { Utilisateur } from 'src/lvt-api/src/models';
-import { forkJoin } from 'rxjs';
+import { forkJoin, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-reservation',
@@ -79,7 +79,7 @@ export class ReservationComponent implements OnInit {
     );
   }
   
-  createReservation() {
+  createReservation1() {
     const produit$ = this.produitService.getProduit(Number(this.id_produit));
     const client$ = this.authentificationService.finbyId(this.id_client);
   
@@ -87,6 +87,36 @@ export class ReservationComponent implements OnInit {
       ([produit, client]) => {
         const reservation = {
           date: this.date+":00Z",
+          produit: produit,
+          client: client, // Ajouter le client récupéré à la réservation
+          accepted: false,
+        };
+        console.log(reservation);
+        this.reservationService.saveOrUpdate(reservation).subscribe(
+          data => {
+            console.log(data);
+          }
+        );
+      },
+      error => {
+        console.error('Erreur lors de la récupération du produit ou du client', error);
+      }
+    );
+  }
+
+  createReservation() {
+    this.produitService.getProduit(Number(this.id_produit)).pipe(
+      switchMap(produit => {
+        return this.authentificationService.finbyId(this.id_client).pipe(
+          map(client => {
+            return { produit, client };
+          })
+        );
+      })
+    ).subscribe(
+      ({ produit, client }) => {
+        const reservation = {
+          date: this.date + ":00Z",
           produit: produit,
           client: client, // Ajouter le client récupéré à la réservation
           accepted: false,
@@ -103,6 +133,9 @@ export class ReservationComponent implements OnInit {
       }
     );
   }
+
+
+
 
   verify(){
     console.log(this.date);

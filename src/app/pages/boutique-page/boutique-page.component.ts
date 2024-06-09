@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs';
-import { Boutique } from 'src/app/models/Boutique';
+import { Boutique } from 'src/lvt-api/src/models/boutique';
 import { BoutiqueService } from 'src/app/services/boutique.service';
 import { ImageprocessingService } from '../../services/imageprocessing.service';
 
@@ -14,7 +14,8 @@ export class BoutiquePageComponent {
   constructor(private boutiqueService: BoutiqueService, private imageService: ImageprocessingService) { };
   boutiques: Boutique[] = [];
   page: number = 1; // Page actuelle
-  boutiquesParPage: number = 6;
+  boutiquesParPage: number = 8;
+  TotalBoutiques: Boutique[] = [];
 
   ngOnInit() {
     this.getAllBoutiques();
@@ -27,9 +28,21 @@ export class BoutiquePageComponent {
       const startIndex = (this.page - 1) * this.boutiquesParPage;
       const endIndex = this.page * this.boutiquesParPage;
       this.boutiques = data.slice(startIndex, endIndex);
+      this.TotalBoutiques = data;
       console.log("Boutiques")
       console.log(this.boutiques);
     });
+  }
+  precedent() {
+    if (this.page > 1) {
+      this.page--;
+      this.getAllBoutiques();
+    }
+  }
+
+  suivant() {
+    this.page++;
+    this.getAllBoutiques();
   }
 
   protected readonly HTMLElement = HTMLElement;

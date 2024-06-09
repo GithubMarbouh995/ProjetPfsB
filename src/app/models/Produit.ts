@@ -1,7 +1,7 @@
 import { FileHandle } from './FileHandle';
 
 export class Produit {
-    id: number;
+    id: any;
     nom: string;
     categorie: string;
     prixLocation: string;

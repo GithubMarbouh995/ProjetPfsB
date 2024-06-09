@@ -23,6 +23,8 @@ import { ReservationsComponent } from './pages/user-dashboard/reservations/reser
 import { MesProduitsComponent } from './pages/user-dashboard/vendeur/mes-produits/mes-produits.component';
 import { MaBoutiqueComponent } from './pages/user-dashboard/vendeur/ma-boutique/ma-boutique.component';
 import { LocationsComponent } from './pages/user-dashboard/locations/locations.component';
+import { LocationAttenteComponent } from './pages/user-dashboard/location-attente/location-attente.component';
+import { SupprimerClientComponent } from './pages/user-dashboard/supprimer-client/supprimer-client.component';
 
 
 const routes: Routes = [
@@ -52,6 +54,8 @@ const routes: Routes = [
       { path: 'boutique', component: MaBoutiqueComponent },
       { path: 'reservationsEnAttente', component: ReservationAttenteComponent },
       { path: 'locations', component: LocationsComponent },
+      { path: 'locationsEnAttente', component: LocationAttenteComponent},
+      { path: 'clients', component: SupprimerClientComponent},
     ]
   }
   

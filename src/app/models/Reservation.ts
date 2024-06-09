@@ -1,8 +1,8 @@
-import { Client, Produit } from 'src/lvt-api/src/models';
+import { Client, Produit, Utilisateur } from 'src/lvt-api/src/models';
 export interface Reservation{
     id: number;
     date: Date;
     produit: Produit;
-    client: Client;
+    client: Utilisateur;
     accepted: boolean;
 } 

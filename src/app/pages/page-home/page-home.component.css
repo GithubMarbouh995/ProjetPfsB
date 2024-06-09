@@ -33,3 +33,7 @@ section .animate {
 .sec-1.show-animate .animate {
     transform: translateX(0);
 }
+.sec-2{
+    background-image: url('src/assets/images/fond-modele-nouvel-an-islamique.jpg');
+    background-size: cover;
+}

@@ -9,19 +9,22 @@
           <!-- <form action="https://app.beldilook.ma/fr/home" method="get">
             <input class="form-control m-0" name="search" placeholder="Recherche" type="text"> <button style="background-color: transparent; border: none; position: absolute; top: 0; margin-left: 111px;" type="submit"><i class="fa fa-search"></i></button>
           </form> -->
-          <button class="btn_sell shadow" style="font-size: 10px; margin-right: 20px;"><a class="text-light link_product" href=""><span class="btn_plus"></span> {{'register_vendeur'|translate}}</a></button>
+          <button class="btn_sell shadow" style="font-size: 10px; margin-right: 20px;" *ngIf="this.role !== 'MANAGER'">
+            <a class="text-light link_product" href=""><span class="btn_plus"></span> {{'register_vendeur'|translate}}</a>
+          </button>
         </div>
       </div>
       <div class="col col-xl-2 col-lg-2 col-md-12 col-sm-12" style="text-align: center;">
         <!-- <button class="btn_sell shadow" style="font-size: 10px;"><a class="text-light link_product" href="https://app.beldilook.ma/fr/ajout_produit"><span class="btn_plus">+</span> Vends avec Beldi Look</a></button> -->
-        <li class="nav-item bg-light p-1 border_log" style="margin-right: 20px;">
+        <li class="nav-item bg-light p-1 border_log" style="margin-right: 20px;" *ngIf="this.auth == 'null'">
           <a class="nav-link p-0 text-dark m-2" routerLink="/inscrire"> {{'register'|translate}} </a>
         </li>
       </div>
       <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12">
         <ul class="navbar-nav ml-auto d-flex flex-row justify-content-around align-items-center">
           <li class="nav-item bg-light p-1 border_log">
-            <a class="nav-link p-0 text-dark m-2"  routerLink="/login"> {{'auth'|translate}} </a>
+            <a class="nav-link p-0 text-dark m-2"  routerLink="/login"  *ngIf="this.auth == 'null'"> {{'auth'|translate}} </a>
+            <a class="nav-link p-0 text-dark m-2" (click)="logout()" *ngIf="this.auth !== 'null'"> Se Déconnecter </a>
           </li>
 <!--          <li class="nav-item bg-light p-1 border_log">-->
 <!--&lt;!&ndash;            <button routerLink="/inscription" class="nav-link p-0 text-dark">  &ndash;&gt;-->
@@ -64,7 +67,7 @@
     <div class="col">
       <a class="nav-link link_slected" href="" routerLink="/recherche">{{'Explorer'|translate}}</a>
     </div>
-    <div class="col">
+    <div class="col" *ngIf="this.role !== 'null'" >
       <a class="nav-link link_slected" href="" routerLink="/user-dashboard">Votre Dashboard</a>
     </div>
   </div>

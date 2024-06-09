@@ -28,10 +28,17 @@ export class PageLoginComponent implements OnInit {
     this.errorMessage = []; // Clear error messages
     this.authenticationService.authenticate(this.authenticationRequest).subscribe({
       next: (data) => {
-        localStorage.setItem('accessToken', data.token as string); 
-        localStorage.setItem('role', data.role as string); 
-        localStorage.setItem('auth', this.authenticationRequest.email ?? ''); // Store token in localStorage
-        this.router.navigate(['/boutique']); // Navigate to '/boutique' after successful authentication
+        console.log(data);
+        localStorage.setItem('accessToken', data.access_token as string); 
+        localStorage.setItem('role', data.Role as string); 
+        localStorage.setItem('auth', this.authenticationRequest.email ?? '');
+        if (data.Role as string == 'ADMIN'){
+          console.log('admin');
+          this.router.navigate(['user-dashboard']);
+        }
+        else {
+          this.router.navigate(['/']);
+        }  // Navigate to '/boutique' after successful authentication
       },
       error: (err) => {
         console.log(err);

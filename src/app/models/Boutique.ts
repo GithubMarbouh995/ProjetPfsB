@@ -6,7 +6,7 @@ export class Boutique {
   adresse: string;
   telephone: string;
   email: string;
-  siteWeb: string;
+  siteweb: string;
   horaire: string;
   vendeur: Vendeur={};
   images : FileHandle[];
@@ -17,7 +17,7 @@ export class Boutique {
     this.adresse = adresse;
     this.telephone = telephone;
     this.email = email;
-    this.siteWeb = siteWeb;
+    this.siteweb = siteWeb;
     this.horaire = horaire;
     this.images = boutiqueImage;
     this.vendeur = vendeur;

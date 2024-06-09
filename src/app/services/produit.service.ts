@@ -10,8 +10,8 @@ export class ProduitService {
 
   constructor(private http: HttpClient) { }
 
-  ajouterProduit(produit: Produit): Observable<Produit> {
-    return this.http.post<Produit>(`${this.apiUrl}/ajouterProduit`, produit);
+  ajouterProduit(produit: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/ajouterProduit`, produit);
   }
 
   getAllProduits(): Observable<Produit[]> {
@@ -22,8 +22,8 @@ export class ProduitService {
     return this.http.delete(`${this.apiUrl}/supprimerProduit/${id_produit}`);
   }
 
-  updateProduit(ProduitId: number, produit: Produit): Observable<Produit> {
-    return this.http.put<Produit>(`${this.apiUrl}/updateProduit/${ProduitId}`, produit);
+  updateProduit( produit: FormData): Observable<Produit> {
+    return this.http.put<Produit>(`${this.apiUrl}/updateProduit`, produit);
   }
 
   getProduitsDispoPourCreneau(id_creneau: number): Observable<Produit[]> {

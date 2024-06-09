@@ -13,7 +13,6 @@
       </a>
       <img #favIcon [id]="'art' + produit.id" (click)="favoris(produit.id, favIcon.id)" class="topright pointer" height="30" width="30" src="../../assets/images/likevide_1.png" alt="">
       <div class="card-body p-2" style="text-align: center;">
-      <p class="mb-1"> <a href="">vendeur1250</a></p>
         <h5 class="card-title mb-1">{{ produit.nom }}</h5>
         <p style="font-size: 14px" class="card-text mb-1"> {{"Categorie"|translate}} : {{ produit.categorie}} </p>
         <p style="font-size: 14px;margin-bottom: 7px;" class="card-text ">{{ produit.prixLocation}} <span class="ml-1">DH</span></p>
