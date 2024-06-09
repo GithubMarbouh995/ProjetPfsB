@@ -2,13 +2,15 @@ import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DomSanitizer } from "@angular/platform-browser";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { FileHandle } from 'src/app/models/FileHandle';
 import { Boutique } from 'src/lvt-api/src/models/boutique';
 import { BoutiqueService } from 'src/app/services/boutique.service';
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { Utilisateur } from "src/lvt-api/src/models";
 import { SharedServiceService } from "src/app/services/shared-service.service";
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: "app-modal-create-boutique",
@@ -30,34 +32,63 @@ export class ModalCreateBoutiqueComponent implements OnInit {
     images: [],
   };
 
+
   constructor(
     private boutiqueService: BoutiqueService,
     private sanitizer: DomSanitizer,
     private fb: FormBuilder,
     private authService: AuthenticationService,
-    private sharedService: SharedServiceService
+    private sharedService: SharedServiceService,
+    private router: Router, private location: Location
   ) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
   }
-
+  role?: string;
+  lang: String = '';
+  auth: string = '';
   ngOnInit(): void {
     this.getIdClient();
+
+
+    this.role = localStorage.getItem('role') ?? undefined;
+    this.lang = localStorage.getItem('lang') || 'fr';
+    this.auth = localStorage.getItem('auth') || 'null';
+
+
   }
 
   create() {
     const formData = this.prepareFormDataForBoutique(this.boutique);
     this.boutiqueService.saveOrUpdate(formData).subscribe(
       (response: Boutique) => {
+        localStorage.setItem('role', 'MANAGER');
         this.form.reset();
         this.boutique.images = [];
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/user-dashboard/produits']);
+        });
+        // localStorage.setItem('auth', 'null');
+        // localStorage.setItem('role', 'null');
+        // this.role = 'null';
+        // this.auth = 'null';
+        // this.router.navigate(['/']);
+
+
+
+
+
+
+
+
       },
       (error: HttpErrorResponse) => {
         console.log(error);
       }
     );
+
   }
 
   prepareFormDataForBoutique(boutique: Boutique): FormData {
@@ -104,7 +135,7 @@ export class ModalCreateBoutiqueComponent implements OnInit {
   }
 
   getIdClient() {
-    const email= localStorage.getItem('auth') || '';
+    const email = localStorage.getItem('auth') || '';
     this.authService.getId(email).subscribe(
       data => {
         this.clientId = data;
@@ -112,7 +143,7 @@ export class ModalCreateBoutiqueComponent implements OnInit {
       }
     );
   }
-  getUtilisateur(){
+  getUtilisateur() {
     this.authService.finbyId(this.clientId).subscribe(
       (data: Utilisateur) => {
         this.boutique.vendeur = data;

@@ -4,12 +4,14 @@
   <div class="col-5  justify-content-center ">
 
     <!-- <div class="img-boutique-detail bg-danger " style="height: 120px;"> -->
-       <div *ngFor="let image of boutique.images">
-              <img [src]="image.url" class="card-img-top img_product img-fluid" >
-            </div>
+    <div *ngFor="let image of boutique.images">
+      <img [src]="image.url" class="card-img-top img_product img-fluid">
+    </div>
     <!-- </div> -->
     <br>
-    <button routerLink="/boutique/{{boutique.id}}/produits" class="btn_sell shadow" style="font-size: 10px; margin-right: 20px;"><a class="text-light link_product"><span class="btn_plus"></span>{{'Produit_boutique' | translate}}</a></button>
+    <button routerLink="/boutique/{{boutique.id}}/produits" class="btn_sell shadow"
+      style="font-size: 10px; margin-right: 20px;"><a class="text-light link_product"><span
+          class="btn_plus"></span>{{'Produit_boutique' | translate}}</a></button>
     <!-- <app-commentaire class=""></app-commentaire>
 
     <h4>Avis : </h4>
@@ -96,7 +98,7 @@
           </div>
         </div>
 
-        
+
       </div>
     </div>
     <app-commentaire class="" [id_boutique]="boutique.id"></app-commentaire>

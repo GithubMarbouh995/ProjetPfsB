@@ -12,27 +12,28 @@ import { TokenService } from '../../services/token.service'; // Import TokenServ
 })
 export class PageLoginComponent implements OnInit {
 
-  authenticationRequest: AuthenticationRequest = {email: '', password: ''}; // Initialize with empty strings
-  errorMessage: Array<string> = []; // Change to an array of strings
+  authenticationRequest: AuthenticationRequest = { email: '', password: '' }; // Initialize with empty strings
+  errorMessage = '';
 
   constructor(
     private authenticationService: AuthenticationService,
     private utilisateurService: UtilisateurService,
     private router: Router,
+    private tokenService: TokenService,
   ) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.errorMessage = []; // Clear error messages
     this.authenticationService.authenticate(this.authenticationRequest).subscribe({
       next: (data) => {
         console.log(data);
-        localStorage.setItem('accessToken', data.access_token as string); 
-        localStorage.setItem('role', data.Role as string); 
+        // localStorage.setItem('accessToken', data.access_token as string);
+        this.tokenService.token = data.access_token as string;
+        localStorage.setItem('role', data.Role as string);
         localStorage.setItem('auth', this.authenticationRequest.email ?? '');
-        if (data.Role as string == 'ADMIN'){
+        if (data.Role as string == 'ADMIN') {
           console.log('admin');
           this.router.navigate(['user-dashboard']);
         }
@@ -41,12 +42,8 @@ export class PageLoginComponent implements OnInit {
         }  // Navigate to '/boutique' after successful authentication
       },
       error: (err) => {
-        console.log(err);
-        if (err.error.validationErrors) {
-          this.errorMessage = err.error.validationErrors;
-        } else {
-          this.errorMessage.push(err.error.errorMsg);
-        }
+        this.errorMessage = 'Login et / ou mot de passe incorrecte';
+
       }
     });
   }

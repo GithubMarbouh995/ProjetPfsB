@@ -1,5 +1,10 @@
-<div class="row">
+<div class="row" *ngIf="locations.length>0; else noLocation">
     <div class="col-4" *ngFor="let location of locations">
         <app-location-attente-card [location]="location"></app-location-attente-card>
     </div>
 </div>
+<ng-template #noLocation>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <p style="font-size: 2em; font-weight: bold;">Aucune location en attente.</p>
+    </div>
+</ng-template>

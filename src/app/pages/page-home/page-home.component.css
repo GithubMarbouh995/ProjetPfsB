@@ -33,7 +33,66 @@ section .animate {
 .sec-1.show-animate .animate {
     transform: translateX(0);
 }
-.sec-2{
+.sec-1{
     background-image: url('src/assets/images/fond-modele-nouvel-an-islamique.jpg');
     background-size: cover;
 }
+.section-title {
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2em;
+    color: #777;
+  }
+  
+  .product-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* max-height: 250px; */
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+  }
+  
+  .stars {
+    color: #f8d64e;
+  }
+  
+  .price {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .reviews {
+    font-size: 0.9em;
+    color: #999;
+  }

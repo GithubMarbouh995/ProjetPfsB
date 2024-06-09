@@ -5,8 +5,8 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { DetailArticleComponent } from './composants/detail-article/detail-article.component';
 import { ModalComponent } from './composants/modal/modal.component';
-import {BoutiquePageComponent} from "./pages/boutique-page/boutique-page.component";
-import {ProduitsBoutiqueComponent} from "./pages/produits-boutique/produits-boutique.component";
+import { BoutiquePageComponent } from "./pages/boutique-page/boutique-page.component";
+import { ProduitsBoutiqueComponent } from "./pages/produits-boutique/produits-boutique.component";
 import { PageReservationComponent } from './pages/page-reservation/page-reservation.component';
 import { BoutiqueDetailPageComponent } from './pages/boutique-detail-page/boutique-detail-page.component';
 import { PageRechercheComponent } from './pages/page-recherche/page-recherche.component';
@@ -25,41 +25,131 @@ import { MaBoutiqueComponent } from './pages/user-dashboard/vendeur/ma-boutique/
 import { LocationsComponent } from './pages/user-dashboard/locations/locations.component';
 import { LocationAttenteComponent } from './pages/user-dashboard/location-attente/location-attente.component';
 import { SupprimerClientComponent } from './pages/user-dashboard/supprimer-client/supprimer-client.component';
+import { authGuard } from "./services/guard/auth.guard";
+
+
+
+// const routes: Routes = [
+//   {path : '', component : PageHomeComponent},
+//   { path: 'inscrire', component: PageInscriptionComponent },
+//   { path: 'login', component: PageLoginComponent },
+//   { path: 'article/:id', component: DetailArticleComponent },
+//   { path: 'reservation/:id/modal', component: ModalComponent },
+//   { path: 'boutique', component: BoutiquePageComponent },
+//   { path: 'boutique/:id/produits', component: ProduitsBoutiqueComponent },
+//   { path: 'boutiques/:id', component: BoutiqueDetailPageComponent },
+//   { path: 'recherche', component: PageRechercheComponent },
+//   { path: 'location/:id', component: LocationComponent},
+//   {path: 'reservation/:id', component: ReservationComponent},
+//   { path: 'profile', component: ProfileComponent},
+//   { path: 'dashboard', component: DashboardComponent},
+//   { path: 'new', component: PageNouveauteComponent},
+//   {
+//     path: 'user-dashboard',
+//     component: UserDashboardComponent,
+//     children: [
+//       { path: 'reservations', component: ReservationsComponent },
+//       { path: 'profile', component: ProfileComponent },
+//       { path: 'historiques', component: HistoriquesComponent },
+//       { path: 'devenir-vendeur', component: DevenirVendeurComponent },
+//       { path: 'produits', component: MesProduitsComponent },
+//       { path: 'boutique', component: MaBoutiqueComponent },
+//       { path: 'reservationsEnAttente', component: ReservationAttenteComponent },
+//       { path: 'locations', component: LocationsComponent },
+//       { path: 'locationsEnAttente', component: LocationAttenteComponent},
+//       { path: 'clients', component: SupprimerClientComponent},
+//     ]
+//   }
+
+// ];
 
 
 const routes: Routes = [
-  {path : '', component : PageHomeComponent},
-  { path: 'inscrire', component: PageInscriptionComponent },
-  { path: 'login', component: PageLoginComponent },
-  { path: 'article/:id', component: DetailArticleComponent },
-  { path: 'reservation/:id/modal', component: ModalComponent },
-  { path: 'boutique', component: BoutiquePageComponent },
-  { path: 'boutique/:id/produits', component: ProduitsBoutiqueComponent },
-  { path: 'boutiques/:id', component: BoutiqueDetailPageComponent },
-  { path: 'recherche', component: PageRechercheComponent },
-  { path: 'location/:id', component: LocationComponent},
-  {path: 'reservation/:id', component: ReservationComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'new', component: PageNouveauteComponent},
+  { path: '', component: PageHomeComponent },//ah
+  { path: 'inscrire', component: PageInscriptionComponent },//ah
+  { path: 'login', component: PageLoginComponent }//AH
+  ,
+  { path: 'article/:id', component: DetailArticleComponent },//ah
+  {
+    path: 'reservation/:id/modal', component: ModalComponent,
+    canActivate: [authGuard]
+  },
+  { path: 'boutique', component: BoutiquePageComponent },//ah
+  { path: 'boutique/:id/produits', component: ProduitsBoutiqueComponent },//ah
+  { path: 'boutiques/:id', component: BoutiqueDetailPageComponent },//ah
+  { path: 'recherche', component: PageRechercheComponent },//ah
+  {
+    path: 'location/:id', component: LocationComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'reservation/:id', component: ReservationComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'profile', component: ProfileComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'dashboard', component: DashboardComponent,
+    canActivate: [authGuard]
+
+  },
+  { path: 'new', component: PageNouveauteComponent },//ah
   {
     path: 'user-dashboard',
+    canActivate: [authGuard],
     component: UserDashboardComponent,
     children: [
-      { path: 'reservations', component: ReservationsComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'historiques', component: HistoriquesComponent },
-      { path: 'devenir-vendeur', component: DevenirVendeurComponent },
-      { path: 'produits', component: MesProduitsComponent },
-      { path: 'boutique', component: MaBoutiqueComponent },
-      { path: 'reservationsEnAttente', component: ReservationAttenteComponent },
-      { path: 'locations', component: LocationsComponent },
-      { path: 'locationsEnAttente', component: LocationAttenteComponent},
-      { path: 'clients', component: SupprimerClientComponent},
+      {
+        path: 'reservations', component: ReservationsComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'profile', component: ProfileComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'historiques', component: HistoriquesComponent,
+        canActivate: [authGuard]
+
+      },
+      {
+        path: 'devenir-vendeur', component: DevenirVendeurComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'produits', component: MesProduitsComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'boutique', component: MaBoutiqueComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'reservationsEnAttente', component: ReservationAttenteComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'locations', component: LocationsComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'locationsEnAttente', component: LocationAttenteComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'clients', component: SupprimerClientComponent,
+        canActivate: [authGuard]
+      },
     ]
   }
-  
+
 ];
+
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

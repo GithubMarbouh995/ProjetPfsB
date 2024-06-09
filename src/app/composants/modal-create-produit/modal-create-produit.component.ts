@@ -2,10 +2,12 @@ import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DomSanitizer } from "@angular/platform-browser";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { FileHandle } from 'src/app/models/FileHandle';
 import { Produit } from 'src/lvt-api/src/models/produit';
 import { ProduitService } from 'src/app/services/produit.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: "app-modal-create-produit",
@@ -18,7 +20,7 @@ export class ModalCreateProduitComponent implements OnInit {
     id: null,
     nom: "",
     categorie: "",
-    description:"",
+    description: "",
     id_boutique: Number(localStorage.getItem('boutiqueId') || ''),
     prixLocation: "",
     images: [],
@@ -27,7 +29,9 @@ export class ModalCreateProduitComponent implements OnInit {
   constructor(
     private produitService: ProduitService,
     private sanitizer: DomSanitizer,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
+    private location: Location
   ) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -37,7 +41,7 @@ export class ModalCreateProduitComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   create() {
     const formData = this.prepareFormDataForProduit(this.produit);
@@ -45,6 +49,9 @@ export class ModalCreateProduitComponent implements OnInit {
       (response: Produit) => {
         this.form.reset();
         this.produit.images = [];
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate([decodeURI(this.location.path())]);
+        });
       },
       (error: HttpErrorResponse) => {
         console.log(error);

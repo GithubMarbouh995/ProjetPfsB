@@ -179,7 +179,8 @@
 <div style="padding-top: 15px">
   <div class="col" id="snackbar"></div>
   <!-- Modal -->
-  <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog" tabindex="-1">
+  <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog"
+    tabindex="-1">
     <!-- Contenu du modal -->
   </div>
 
@@ -189,33 +190,33 @@
         <div class="row">
           <div class="col-md-6">
             <div *ngFor="let image of produit[0].images">
-              <img [src]="image.url" class="img-responsive image_principal w-100"  id="image_principal">
+              <img [src]="image.url" class="img-responsive image_principal w-100" id="image_principal">
             </div>
             <div class="row mt-2">
               <div class="col-4">
-<!--                <img class="img_chontio" onclick="change_image(this.src)" src="assets/images/202403201050542601A.JPEG">-->
+                <!--                <img class="img_chontio" onclick="change_image(this.src)" src="assets/images/202403201050542601A.JPEG">-->
               </div>
               <div class="col-4">
-<!--                <img class="img_chontio" onclick="change_image(this.src)" src="assets/images/20240318181910237451B.JPEG">-->
+                <!--                <img class="img_chontio" onclick="change_image(this.src)" src="assets/images/20240318181910237451B.JPEG">-->
               </div>
               <div class="col-4">
-<!--                <img class="img_chontio" onclick="change_image(this.src)" src="assets/images/202403201050542601A.JPEG">-->
+                <!--                <img class="img_chontio" onclick="change_image(this.src)" src="assets/images/202403201050542601A.JPEG">-->
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="row">
-<!--              <div class="col-12 text-center">-->
-<!--                <h5>Avis :</h5>-->
-<!--                <div>-->
-<!--                  <i class="star stargrey fas fa-star" data-index="0"></i>-->
-<!--                  <i class="star stargrey fas fa-star" data-index="1"></i>-->
-<!--                  <i class="star stargrey fas fa-star" data-index="2"></i>-->
-<!--                  <i class="star stargrey fas fa-star" data-index="3"></i>-->
-<!--                  <i class="star stargrey fas fa-star" data-index="4"></i>-->
-<!--                  <span class="star1" style="font-size: 12px; display: inline">0 avis</span>-->
-<!--                </div>-->
-<!--              </div>-->
+              <!--              <div class="col-12 text-center">-->
+              <!--                <h5>Avis :</h5>-->
+              <!--                <div>-->
+              <!--                  <i class="star stargrey fas fa-star" data-index="0"></i>-->
+              <!--                  <i class="star stargrey fas fa-star" data-index="1"></i>-->
+              <!--                  <i class="star stargrey fas fa-star" data-index="2"></i>-->
+              <!--                  <i class="star stargrey fas fa-star" data-index="3"></i>-->
+              <!--                  <i class="star stargrey fas fa-star" data-index="4"></i>-->
+              <!--                  <span class="star1" style="font-size: 12px; display: inline">0 avis</span>-->
+              <!--                </div>-->
+              <!--              </div>-->
               <div class="col-12 mt-2 text-center">
                 <div class="tags selected">{{produit[0].categorie}}</div>
                 <br>
@@ -230,7 +231,9 @@
                 </div>
                 <div class="col-12">
                   <div class="row">
-                    <div class="col-12"><h3>{{"Description"|translate}} :</h3></div>
+                    <div class="col-12">
+                      <h3>{{"Description"|translate}} :</h3>
+                    </div>
                     <div class="col-12">
                       <p class="card-text mb-1" style="font-size: 14px">
                         {{produit[0].description}}
@@ -241,53 +244,57 @@
                 </div>
                 <div class="col-12 ">
                   <div class="col p-0">
-                    <h3>{{"Prix"|translate}} :<span class="card-text mb-1" style="font-size: 14px">  {{produit[0].prixLocation}} DHS</span></h3>
+                    <h3>{{"Prix"|translate}} :<span class="card-text mb-1" style="font-size: 14px">
+                        {{produit[0].prixLocation}} DHS</span></h3>
 
                   </div>
                   <div class="col price p-0">
                     <span id="prix" class="price_card"></span>
                   </div>
                 </div>
-              <div class="col-12 mt-3">
-                <button class="btn btn_add_cart btn btn-dark" routerLink="/reservation/{{produit[0].id}}" type="submit">
-                  <i class="fas fa-shopping-cart"></i> {{"Reserver_boutton"|translate}} 
-                </button>
-                <br>
-                <br>
-                <button class="btn btn_add_cart btn btn-dark" routerLink="/location/{{produit[0].id}}" type="submit">
-                  <i class="fas fa-shopping-cart"></i> {{"Louer_boutton"|translate}} 
-                </button>
+                <div class="col-12 mt-3">
+                  <button class="btn btn_add_cart btn btn-dark" routerLink="/reservation/{{produit[0].id}}"
+                    type="submit">
+                    <i class="fas fa-shopping-cart"></i> {{"Reserver_boutton"|translate}}
+                  </button>
+                  <br>
+                  <br>
+                  <button class="btn btn_add_cart btn btn-dark" routerLink="/location/{{produit[0].id}}" type="submit">
+                    <i class="fas fa-shopping-cart"></i> {{"Louer_boutton"|translate}}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <br>
-  <h5 class="text-center pt-5 pb-5" style="font-size: 30px;">{{"Autre_produit"|translate}} : </h5>
-  <div class="container">
-    <div class="row mb-3">
-      <div *ngFor="let produit of suggestions | slice:0:4 " class="col-xl-3 col-lg-3 col-md-4 col-sm-2 d-flex articles_boutique_une" style="justify-content: center">
-        <div class="card card_content border-0">
-          <a [href]="'http://localhost:4200/article/' + produit.id">
-            <div *ngFor="let image of produit.images">
-              <img [src]="image.url" class="card-img-top img_product img-fluid" alt="product_card" style="height: 400px;object-fit: cover;">
+    <br>
+    <h5 class="text-center pt-5 pb-5" style="font-size: 30px;">{{"Autre_produit"|translate}} : </h5>
+    <div class="container">
+      <div class="row mb-3">
+        <div *ngFor="let produit of suggestions | slice:0:4 "
+          class="col-xl-3 col-lg-3 col-md-4 col-sm-2 d-flex articles_boutique_une" style="justify-content: center">
+          <div class="card card_content border-0">
+            <a [href]="'http://localhost:4200/article/' + produit.id">
+              <div *ngFor="let image of produit.images">
+                <img [src]="image.url" class="card-img-top img_product img-fluid" alt="product_card"
+                  style="height: 400px;object-fit: cover;">
+              </div>
+            </a>
+            <!-- <img alt="" class="topright pointer" height="30" [id]="'art' + produit.id" src="assets/images/likevide_1.png" width="30"> -->
+            <div class="card-body p-2" style="text-align: center;">
+              <p class="mb-1"></p>
+              <h5 class="card-title mb-1">{{ produit.nom }}</h5>
+              <p class="card-text mb-1" style="font-size: 14px">{{"Categorie"|translate}} : {{ produit.categorie }}</p>
+              <p class="card-text mb-1" style="font-size: 14px">{{ produit.prixLocation }},00 DH</p>
             </div>
-          </a>
-          <img alt="" class="topright pointer" height="30" [id]="'art' + produit.id" src="assets/images/likevide_1.png" width="30">
-          <div class="card-body p-2" style="text-align: center;">
-            <p class="mb-1"></p>
-            <h5 class="card-title mb-1">{{ produit.nom }}</h5>
-            <p class="card-text mb-1" style="font-size: 14px">{{"Categorie"|translate}} : {{ produit.categorie }}</p>
-            <p class="card-text mb-1" style="font-size: 14px">{{ produit.prixLocation }},00 DH</p>
           </div>
         </div>
       </div>
     </div>
+    <br>
   </div>
-  <br>
-</div>
 </div>
 <app-footer></app-footer>
 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>-->
@@ -322,5 +329,3 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
-
-
